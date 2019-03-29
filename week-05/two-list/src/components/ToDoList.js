@@ -73,6 +73,13 @@ class ToDoList extends Component {
       })
   }
 
+  changeComplete = item => {
+    const url = `https://localhost:5001/api/items/${item.id}`
+    axios.put(url).then(resp => {
+      this.getListFromAPI()
+    })
+  }
+
   generateRandomToken = () => {
     // creat a new string that is 20 random characters long
     return Math.floor(Math.random() * Math.pow(10, 20)).toString()
@@ -109,15 +116,32 @@ class ToDoList extends Component {
         />
         <p className="output" />
         <ol className="todo-list">
-          {this.state.todoList.map(item => {
-            return (
-              <ListItem
-                key={item.id}
-                item={item}
-                deleteItem={this.deleteItem}
-              />
-            )
-          })}
+          {this.state.todoList
+            .filter(f => f.complete === false)
+            .map(item => {
+              return (
+                <ListItem
+                  key={item.id}
+                  item={item}
+                  deleteItem={this.deleteItem}
+                  changeComplete={this.changeComplete}
+                />
+              )
+            })}
+        </ol>
+        <ol className="complete-list">
+          {this.state.todoList
+            .filter(f => f.complete === true)
+            .map(item => {
+              return (
+                <ListItem
+                  key={item.id}
+                  item={item}
+                  deleteItem={this.deleteItem}
+                  changeComplete={this.changeComplete}
+                />
+              )
+            })}
         </ol>
       </>
     )
