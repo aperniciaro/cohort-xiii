@@ -11,7 +11,7 @@ class ToDoList extends Component {
   }
 
   getApiUrl = () => {
-    return `https://localhost:5001/items`
+    return `https://localhost:5001/api/items`
   }
 
   updateStateWithNewItem = event => {
@@ -47,7 +47,7 @@ class ToDoList extends Component {
   }
 
   deleteItem = item => {
-    const url = `https://localhost:5001/items/${item.id}`
+    const url = `https://localhost:5001/api/items/${item.id}`
     axios.delete(url).then(resp => {
       this.getListFromAPI()
     })
