@@ -11,9 +11,7 @@ class ToDoList extends Component {
   }
 
   getApiUrl = () => {
-    return `https://one-list-api.herokuapp.com/items?access_token=${
-      this.state.accessToken
-    }`
+    return `https://localhost:5001/items`
   }
 
   updateStateWithNewItem = event => {
@@ -49,9 +47,7 @@ class ToDoList extends Component {
   }
 
   deleteItem = item => {
-    const url = `https://one-list-api.herokuapp.com/items/${
-      item.id
-    }?access_token=${this.state.accessToken}`
+    const url = `https://localhost:5001/items/${item.id}`
     axios.delete(url).then(resp => {
       this.getListFromAPI()
     })
