@@ -54,6 +54,7 @@ class ToDoList extends Component {
   }
 
   addItemToApi = event => {
+    console.log(this.state.newItemText)
     event.preventDefault()
     axios
       .post(this.getApiUrl(), {
@@ -62,6 +63,7 @@ class ToDoList extends Component {
         }
       })
       .then(resp => {
+        console.log(resp)
         // get lateset list form API
         this.getListFromAPI()
         // update state to clear out the input field
