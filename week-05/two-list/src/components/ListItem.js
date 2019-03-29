@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class ListItem extends Component {
   render() {
     return (
-      <>
+      <section className="list-item">
         <li
           onClick={() => this.props.deleteItem(this.props.item)}
           className={this.props.item.completed ? 'completed-item' : ''}
@@ -13,7 +13,7 @@ class ListItem extends Component {
         <button onClick={() => this.props.changeComplete(this.props.item)}>
           Update
         </button>
-      </>
+      </section>
     )
   }
 }

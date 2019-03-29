@@ -23,6 +23,15 @@ h1 {
   font-size: 3rem;
 }
 
+.list-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.list-item button {
+  margin-left: 0.25rem;
+}
+
 .todo-list li section {
   margin: 1rem;
   align-content: center;
@@ -35,7 +44,7 @@ h1 {
   margin-right: 1rem;
 }
 
-form button, .todo-list button {
+form button {
   height: 2rem;
   padding: 0.5rem;
 }

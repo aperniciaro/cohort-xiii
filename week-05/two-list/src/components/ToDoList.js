@@ -115,6 +115,7 @@ class ToDoList extends Component {
           updateStateWithNewItem={this.updateStateWithNewItem}
         />
         <p className="output" />
+        <h2>Tasks To Do:</h2>
         <ol className="todo-list">
           {this.state.todoList
             .filter(f => f.complete === false)
@@ -129,6 +130,7 @@ class ToDoList extends Component {
               )
             })}
         </ol>
+        <h2>Completed tasks:</h2>
         <ol className="complete-list">
           {this.state.todoList
             .filter(f => f.complete === true)
