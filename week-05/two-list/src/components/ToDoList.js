@@ -11,7 +11,9 @@ class ToDoList extends Component {
   }
 
   getApiUrl = () => {
-    return `https://localhost:5001/api/items`
+    return `https://localhost:5001/api/items/?access_token=${
+      this.state.accessToken
+    }`
   }
 
   updateStateWithNewItem = event => {
@@ -47,7 +49,9 @@ class ToDoList extends Component {
   }
 
   deleteItem = item => {
-    const url = `https://localhost:5001/api/items/${item.id}`
+    const url = `https://localhost:5001/api/items/${item.id}/?access_token=${
+      this.state.accessToken
+    }`
     axios.delete(url).then(resp => {
       this.getListFromAPI()
     })
@@ -74,7 +78,9 @@ class ToDoList extends Component {
   }
 
   changeComplete = item => {
-    const url = `https://localhost:5001/api/items/${item.id}`
+    const url = `https://localhost:5001/api/items/${item.id}/?access_token=${
+      this.state.accessToken
+    }`
     axios.put(url).then(resp => {
       this.getListFromAPI()
     })
